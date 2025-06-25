@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Summon a Wanderling</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Summon Your Wanderling</title>
   <style>
     body {
       font-family: 'Georgia', serif;
-      background: #f5f2eb;
-      color: #2e2b28;
+      background-color: #2e3d2f;
+      background-image: 
+        url('https://www.transparenttextures.com/patterns/wood-pattern.png'),
+        linear-gradient(to bottom, #2e3d2f, #4b5b47);
+      color: #f4f0ea;
       padding: 2rem;
-      max-width: 700px;
+      max-width: 600px;
       margin: auto;
       text-align: center;
     }
     button {
-      background: #4b4137;
+      background: #4e3b31;
       color: white;
       padding: 0.8rem 1.5rem;
       border: none;
       font-size: 1.1rem;
       cursor: pointer;
       margin-top: 1rem;
-      border-radius: 10px;
+      border-radius: 8px;
     }
     .result {
       margin-top: 2rem;
       font-size: 1.2rem;
-      background: #e4ded5;
+      background: rgba(255, 255, 255, 0.1);
       padding: 1rem;
       border-radius: 12px;
     }
   </style>
 </head>
 <body>
-  <h1>🧳 Summon a Wanderling</h1>
-  <p>Whisper your name to the Hollow... and roll the dice.</p>
-  <button onclick="generateWanderling()">Roll the Dice 🎲</button>
+  <h1>🧳 Summon Your Wanderling 🧳</h1>
+  <p>Roll the dice to meet your traveling companion...</p>
+  <button id="rollButton">Roll the Dice 🎲</button>
   <div class="result" id="result"></div>
 
   <script>
@@ -45,36 +48,31 @@
     }
 
     function generateWanderling() {
-      const colors = ["Crimson", "Lavender", "Mossy", "Silver", "Dusky", "Golden", "Midnight", "Ashen"];
-      const creatures = ["Foxling", "Moth", "Badger", "Briarcat", "Toadkin", "Wisp", "Sprite", "Stitchlet"];
-      const adjectives = ["Sleepy", "Forgotten", "Quiet", "Wandering", "Secret", "Gentle", "Lost", "Ember"];
-      const objects = ["Lantern", "Thread", "Thimble", "Patch", "Button", "Needle", "Map", "Key"];
-      const mysticWords = ["Wisp", "Rune", "Fable", "Shade", "Echo", "Hollow", "Bloom", "Flicker"];
-      const names = ["Elra", "Marn", "Thimma", "Nell", "Cress", "Lune", "Bram", "Wren"];
-      const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const species = ["Maplekin", "Moonthread", "Bramble Wisp", "Mothwalker", "Thistlecat", "Rootling", "Fernshade", "Driftmoth"];
+      const purposes = ["Guides forgotten travelers", "Guards hidden paths", "Stitches dreams together", "Holds your memories", "Weaves silence into comfort", "Leads wanderers home", "Eats bad luck", "Follows the lost until they are found"];
+      const trinkets = ["Acorn lantern", "Silver needle", "Glass marble with a storm inside", "Threaded ring", "Pressed flower in wax", "Copper bell with no clapper", "Bundle of old keys", "Cracked compass"];
+      const personalities = ["Gentle", "Fierce", "Playful", "Clever", "Watchful", "Sleepy", "Curious", "Bold"];
+      const sounds = ["Chimes in fog", "Rustling leaves", "A melody only you remember", "A distant hum", "Rushing stream", "Wind in tall grass"];
+      const textures = ["Woolly and warm", "Bristled like moss", "Velvety soft", "Threadbare but kind", "Featherlight", "Root-wrapped"];
 
-      const origins = ["Between attic beams", "Foggy edge of dawn", "Forgotten drawer", "Under a quilt corner", "Behind the last page of a book", "Woven into a shadow", "Folded in moss", "Beneath a lost button"];
-      const roles = ["Carries forgotten dreams", "Holds heavy feelings", "Guards unspoken wishes", "Follows fading paths", "Brings messages in thimbles", "Stitches holes in memory", "Whispers what you won't say", "Collects the things you lose"];
-      const carried = ["A crumbled note", "A pine needle bundle", "A knotted thread", "A cracked button", "A worn feather", "A glass bead", "A stitched star scrap", "A mossy charm"];
-      const restPlaces = ["Inside coat pockets", "Between old books", "On warm windowsills", "Behind teacups", "Under pillows", "In sewing boxes", "Atop candle holders", "In tangled thread jars"];
+      const nameStarts = ["Willow", "Moss", "Thim", "Clover", "Nim", "Bram", "Tansy", "Wren"];
+      const nameEnds = ["twig", "whistle", "fern", "hollow", "mend", "flicker", "bloom", "shade"];
 
-      const style = roll(4);
-      let name = "";
-      if (style === 1) name = colors[roll(8)-1] + " " + creatures[roll(8)-1];
-      else if (style === 2) name = adjectives[roll(8)-1] + " " + objects[roll(8)-1];
-      else if (style === 3) name = mysticWords[roll(8)-1] + " of " + names[roll(8)-1];
-      else name = months[roll(12)-1] + "kin";
+      const name = nameStarts[roll(nameStarts.length)-1] + nameEnds[roll(nameEnds.length)-1];
 
       const result = `
-        🧵 <strong>Name:</strong> ${name}<br>
-        🌲 <strong>Origin:</strong> ${origins[roll(8)-1]}<br>
-        ✨ <strong>Purpose:</strong> ${roles[roll(8)-1]}<br>
-        🎒 <strong>Carried Within:</strong> ${carried[roll(8)-1]}<br>
-        💤 <strong>Favorite Place to Rest:</strong> ${restPlaces[roll(8)-1]}
+        🧳 <strong>Name:</strong> ${name}<br>
+        🐾 <strong>Species:</strong> ${species[roll(species.length)-1]}<br>
+        🌟 <strong>Purpose:</strong> ${purposes[roll(purposes.length)-1]}<br>
+        🎁 <strong>Trinket:</strong> ${trinkets[roll(trinkets.length)-1]}<br>
+        😌 <strong>Personality:</strong> ${personalities[roll(personalities.length)-1]}<br>
+        🎶 <strong>Sound:</strong> ${sounds[roll(sounds.length)-1]}<br>
+        ✋ <strong>Feel:</strong> ${textures[roll(textures.length)-1]}
       `;
-
       document.getElementById("result").innerHTML = result;
     }
+
+    document.getElementById("rollButton").addEventListener("click", generateWanderling);
   </script>
 </body>
 </html>
