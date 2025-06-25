@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet the Wanderlings</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: #f9f7f4;
+      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      color: #2f2b26;
+      padding: 2rem;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .wanderling {
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      background-color: #fdfcf9;
+      border: 2px dashed #d4c6b6;
+      border-radius: 10px;
+    }
+    .wanderling h2 {
+      margin-top: 0;
+      color: #4e4137;
+    }
+    .whisper {
+      font-style: italic;
+      color: #7a6d5c;
+      text-align: center;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌿 Meet the Wanderlings 🌿</h1>
+  <p>
+    They arrive when the mist curls around the trees…<br>
+    Not called. Not caught. But noticed.<br>
+    Stitch by stitch
