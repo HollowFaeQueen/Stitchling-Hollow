@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Summon Your Stitchling</title>
   <style>
     body {
@@ -37,7 +37,6 @@
   <h1>🔮 Summon Your Stitchling 🔮</h1>
   <p>Roll the dice to discover the creature crafted just for you...</p>
   <button onclick="generateStitchling()">Roll the Dice 🎲</button>
-
   <div class="result" id="result"></div>
 
   <script>
@@ -70,3 +69,13 @@
       const result = `
         🧵 <strong>Name:</strong> ${name}<br>
         🌲 <strong>Head:</strong> ${heads[roll(8)-1]}<br>
+        🌿 <strong>Body:</strong> ${bodies[roll(6)-1]}<br>
+        ✨ <strong>Power:</strong> ${powers[roll(10)-1]}<br>
+        🌀 <strong>Alignment:</strong> ${alignments[roll(12)-1]}<br>
+        🎁 <strong>Artifact:</strong> ${artifacts[roll(8)-1]}
+      `;
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+</body>
+</html>
