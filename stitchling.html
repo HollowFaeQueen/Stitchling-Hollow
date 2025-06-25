@@ -31,6 +31,12 @@
       padding: 1rem;
       border-radius: 12px;
     }
+    .note {
+      font-size: 0.9rem;
+      color: #7a6d64;
+      margin-top: 2rem;
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -38,6 +44,10 @@
   <p>Roll the dice to discover the creature crafted just for you...</p>
   <button onclick="generateStitchling()">Roll the Dice 🎲</button>
   <div class="result" id="result"></div>
+  <div class="note">
+    Having trouble? Try refreshing or opening in a private/incognito tab —<br>
+    sometimes the Hollow takes a moment to wake up. 🌙
+  </div>
 
   <script>
     function roll(sides) {
