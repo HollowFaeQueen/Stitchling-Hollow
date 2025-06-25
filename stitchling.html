@@ -39,7 +39,7 @@
 <body>
   <h1>🔮 Summon Your Stitchling 🔮</h1>
   <p>Roll the dice to discover the creature crafted just for you...</p>
-  <button onclick="generateStitchling()">Roll the Dice 🎲</button>
+  <button id="rollButton">Roll the Dice 🎲</button>
   <div class="result" id="result"></div>
 
   <script>
@@ -58,4 +58,29 @@
       const creatures = ["Foxling", "Moth", "Badger", "Briarcat", "Toadkin", "Wisp", "Sprite", "Stitchlet"];
       const adjectives = ["Sleepy", "Forgotten", "Quiet", "Wandering", "Secret", "Gentle", "Lost", "Ember"];
       const objects = ["Lantern", "Thread", "Thimble", "Patch", "Button", "Needle", "Map", "Key"];
-      const mysticWords = ["Wisp", "Rune", "Fable", "Shade", "Echo", "Hollow", "]()
+      const mysticWords = ["Wisp", "Rune", "Fable", "Shade", "Echo", "Hollow", "Bloom", "Flicker"];
+      const names = ["Elra", "Marn", "Thimma", "Nell", "Cress", "Lune", "Bram", "Wren"];
+      const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+      const style = roll(4);
+      let name = "";
+      if (style === 1) name = colors[roll(8)-1] + " " + creatures[roll(8)-1];
+      else if (style === 2) name = adjectives[roll(8)-1] + " " + objects[roll(8)-1];
+      else if (style === 3) name = mysticWords[roll(8)-1] + " of " + names[roll(8)-1];
+      else name = months[roll(12)-1] + "kin";
+
+      const result = `
+        🧵 <strong>Name:</strong> ${name}<br>
+        🌲 <strong>Head:</strong> ${heads[roll(8)-1]}<br>
+        🌿 <strong>Body:</strong> ${bodies[roll(6)-1]}<br>
+        ✨ <strong>Power:</strong> ${powers[roll(10)-1]}<br>
+        🌀 <strong>Alignment:</strong> ${alignments[roll(12)-1]}<br>
+        🎁 <strong>Artifact:</strong> ${artifacts[roll(8)-1]}
+      `;
+      document.getElementById("result").innerHTML = result;
+    }
+
+    document.getElementById("rollButton").addEventListener("click", generateStitchling);
+  </script>
+</body>
+</html>
