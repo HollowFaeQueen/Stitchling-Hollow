@@ -7,8 +7,11 @@
   <style>
     body {
       font-family: 'Georgia', serif;
-      background: #f7f5f0;
-      color: #2c1e1e;
+      background-color: #2e3d2f;
+      background-image:
+        linear-gradient(to bottom, #2e3d2f, #4b5b47),
+        url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+      color: #f4f0ea;
       padding: 2rem;
       max-width: 600px;
       margin: auto;
@@ -27,15 +30,9 @@
     .result {
       margin-top: 2rem;
       font-size: 1.2rem;
-      background: #e8e3db;
+      background: rgba(255, 255, 255, 0.1);
       padding: 1rem;
       border-radius: 12px;
-    }
-    .note {
-      font-size: 0.9rem;
-      color: #7a6d64;
-      margin-top: 2rem;
-      font-style: italic;
     }
   </style>
 </head>
@@ -44,10 +41,6 @@
   <p>Roll the dice to discover the creature crafted just for you...</p>
   <button onclick="generateStitchling()">Roll the Dice 🎲</button>
   <div class="result" id="result"></div>
-  <div class="note">
-    Having trouble? Try refreshing or opening in a private/incognito tab —<br>
-    sometimes the Hollow takes a moment to wake up. 🌙
-  </div>
 
   <script>
     function roll(sides) {
@@ -55,6 +48,12 @@
     }
 
     function generateStitchling() {
+      const heads = ["Cat with button eyes", "Owl with embroidered feathers", "Dragon with soft felt scales", "Fox with a patchwork face", "Frog with a velvet crown", "Rabbit with moon markings", "Deer with mossy antlers", "Bat with stitched wings"];
+      const bodies = ["Crocheted vines and moss", "Velvet and silver thread", "Old flannel quilt", "Linen with lace trim", "Starlit denim patchwork", "Wool with secret pockets"];
+      const powers = ["Glows under moonlight", "Whispers when you're sad", "Guards your secrets", "Attracts small birds", "Dream weaver", "Invisible when scared", "Hums softly when hugged", "Stitches dreams into fabric", "Never gets lost", "Follows you loyally"];
+      const alignments = ["Benevolent", "Mischievous", "Sleepy", "Curious", "Shy", "Rebellious", "Wandering", "Playful", "Protective", "Wise", "Secretive", "Fierce"];
+      const artifacts = ["A brass thimble", "A key with no door", "A feather from a dream bird", "A cracked button", "A scroll with invisible writing", "A charm of yarn", "A moss-wrapped stone", "A miniature lantern"];
+
       const colors = ["Crimson", "Lavender", "Mossy", "Silver", "Dusky", "Golden", "Midnight", "Ashen"];
       const creatures = ["Foxling", "Moth", "Badger", "Briarcat", "Toadkin", "Wisp", "Sprite", "Stitchlet"];
       const adjectives = ["Sleepy", "Forgotten", "Quiet", "Wandering", "Secret", "Gentle", "Lost", "Ember"];
@@ -62,12 +61,6 @@
       const mysticWords = ["Wisp", "Rune", "Fable", "Shade", "Echo", "Hollow", "Bloom", "Flicker"];
       const names = ["Elra", "Marn", "Thimma", "Nell", "Cress", "Lune", "Bram", "Wren"];
       const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-      const heads = ["Cat with button eyes", "Owl with embroidered feathers", "Dragon with soft felt scales", "Fox with a patchwork face", "Frog with a velvet crown", "Rabbit with moon markings", "Deer with mossy antlers", "Bat with stitched wings"];
-      const bodies = ["Crocheted vines and moss", "Velvet and silver thread", "Old flannel quilt", "Linen with lace trim", "Starlit denim patchwork", "Wool with secret pockets"];
-      const powers = ["Glows under moonlight", "Whispers when you're sad", "Guards your secrets", "Attracts small birds", "Dream weaver", "Invisible when scared", "Hums softly when hugged", "Stitches dreams into fabric", "Never gets lost", "Follows you loyally"];
-      const alignments = ["Benevolent", "Mischievous", "Sleepy", "Curious", "Shy", "Rebellious", "Wandering", "Playful", "Protective", "Wise", "Secretive", "Fierce"];
-      const artifacts = ["A brass thimble", "A key with no door", "A feather from a dream bird", "A cracked button", "A scroll with invisible writing", "A charm of yarn", "A moss-wrapped stone", "A miniature lantern"];
 
       const style = roll(4);
       let name = "";
@@ -79,14 +72,4 @@
       const result = `
         🧵 <strong>Name:</strong> ${name}<br>
         🌲 <strong>Head:</strong> ${heads[roll(8)-1]}<br>
-        🌿 <strong>Body:</strong> ${bodies[roll(6)-1]}<br>
-        ✨ <strong>Power:</strong> ${powers[roll(10)-1]}<br>
-        🌀 <strong>Alignment:</strong> ${alignments[roll(12)-1]}<br>
-        🎁 <strong>Artifact:</strong> ${artifacts[roll(8)-1]}
-      `;
-
-      document.getElementById("result").innerHTML = result;
-    }
-  </script>
-</body>
-</html>
+        🌿 <strong>Body:</strong> ${bodies[roll(6)]()
